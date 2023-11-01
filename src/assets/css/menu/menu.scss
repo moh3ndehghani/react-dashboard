@@ -1,0 +1,35 @@
+@layer components {
+  .menu {
+    @apply flex flex-col gap-5;
+    &-item {
+      @apply flex items-center gap-4 text-lg font-semibold;
+      &-icon {
+        @apply flex-center p-1 rounded-xl bg-green-100 text-green-500 opacity-30 transition-300;
+      }
+      &-title {
+        @apply text-gray-400 transition-300;
+      }
+      &:hover {
+        .menu-item-title,
+        .menu-item-icon {
+          @apply text-[var(--green-6)] opacity-100 #{!important};
+        }
+      }
+    }
+
+    &-item-active {
+      .menu-item-title {
+        @apply text-gray-800 #{!important};
+      }
+      .menu-item-icon {
+        @apply text-[var(--green-6)] opacity-100 #{!important};
+      }
+    }
+    &-item-active-open-drawer {
+      &::after {
+        content: "";
+        @apply block w-[4px] h-[30px] rounded-full bg-[var(--green-6)] right-5 absolute;
+      }
+    }
+  }
+}

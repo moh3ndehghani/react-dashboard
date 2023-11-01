@@ -1,0 +1,7 @@
+@import "./colors.scss";
+@import "./app.scss";
+@import "./override-classes.scss";
+@import "./menu/menu.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
