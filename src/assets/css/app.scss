@@ -1,6 +1,10 @@
 @layer base {
+  *{
+    font-family: Poppins
+  }
+
   body {
-    @apply bg-[var(--green-1)];
+    @apply bg-[#0080001a];
   }
 
   .transition-300 {
@@ -9,5 +13,9 @@
 
   .flex-center {
     @apply flex items-center justify-center;
+  }
+
+  .navbar-icon{
+    @apply flex items-center justify-center p-2 rounded-lg  cursor-pointer transition-300 
   }
 }

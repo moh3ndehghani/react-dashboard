@@ -6,6 +6,8 @@
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import { Dispatch, ReactNode, SetStateAction } from "react";
+import { useSelector } from "react-redux";
+import RootStateModel from "models/global/RootStateModel";
 
 const drawerWidth = 300;
 
@@ -48,15 +50,17 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 interface Props {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
   children?: ReactNode;
 }
 
 const DesktopDrawer = (props: Props) => {
-  const { open, setOpen, children } = props;
+  const { children } = props;
+  const store:RootStateModel = useSelector((state:RootStateModel) => state);
   return (
-    <Drawer variant="permanent" open={open} transitionDuration={2000}>
+    <Drawer
+      variant="permanent"
+      open={store.SidebarStore.open}
+    >
       {children}
     </Drawer>
   );
